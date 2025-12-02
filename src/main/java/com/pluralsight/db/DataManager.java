@@ -25,7 +25,7 @@ public class DataManager {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, firstName);
-            preparedStatement.setString(1, lastName);
+            preparedStatement.setString(2, lastName);
             try (ResultSet results = preparedStatement.executeQuery()) {
                 if (results.next()) {
                     do {
