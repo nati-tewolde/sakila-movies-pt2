@@ -20,7 +20,7 @@ public class DataManager {
         String query = """
                 SELECT a.actor_id, a.first_name, a.last_name
                 FROM Actor a
-                WHERE a.first_name = ? AND a.last_name = ?;
+                WHERE a.first_name = ? OR a.last_name = ?;
                 """;
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {

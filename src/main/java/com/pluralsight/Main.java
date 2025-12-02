@@ -33,20 +33,20 @@ public class Main {
                 String lastName = scanner.nextLine();
 
                 List<Actor> actorList = dataManager.getActorsByName(firstName, lastName);
-                if (actorList.isEmpty()) {
-                    System.out.println("No matches!");
-                } else {
+                if (!actorList.isEmpty()) {
                     actorList.forEach(System.out::println);
+                } else {
+                    System.out.println("No matches!");
                 }
 
-                System.out.print("\nPlease enter an Actor ID:");
+                System.out.print("\nPlease enter an Actor ID: ");
                 int actorId = scanner.nextInt();
 
                 List<Film> filmList = dataManager.getFilmsByActorId(actorId);
-                if (filmList.isEmpty()) {
-                    System.out.println("No matches!");
-                } else {
+                if (!filmList.isEmpty()) {
                     filmList.forEach(System.out::println);
+                } else {
+                    System.out.println("No matches!");
                 }
             }
         } catch (Exception e) {

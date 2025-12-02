@@ -25,10 +25,8 @@ public class Actor {
 
     @Override
     public String toString() {
-        return "Actor{" +
-                "actorId=" + actorId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return "\nactorId: " + actorId +
+                "\nfirstName: " + firstName +
+                "\nlastName: " + lastName;
     }
 }

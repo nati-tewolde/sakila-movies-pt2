@@ -38,12 +38,10 @@ public class Film {
 
     @Override
     public String toString() {
-        return "Film{" +
-                "filmId=" + filmId +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", releaseYear=" + releaseYear +
-                ", length=" + length +
-                '}';
+        return "\nfilmId: " + filmId +
+                "\ntitle: " + title +
+                "\ndescription: " + description +
+                "\nreleaseYea: " + releaseYear +
+                "\nlength: " + length;
     }
 }
