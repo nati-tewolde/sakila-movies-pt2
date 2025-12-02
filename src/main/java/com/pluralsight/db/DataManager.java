@@ -27,16 +27,12 @@ public class DataManager {
             preparedStatement.setString(1, firstName);
             preparedStatement.setString(2, lastName);
             try (ResultSet results = preparedStatement.executeQuery()) {
-                if (results.next()) {
-                    do {
-                        int actorId = results.getInt(1);
-                        String actorFirstName = results.getString(2);
-                        String actorLastName = results.getString(3);
+                while (results.next()) {
+                    int actorId = results.getInt(1);
+                    String actorFirstName = results.getString(2);
+                    String actorLastName = results.getString(3);
 
-                        actors.add(new Actor(actorId, actorFirstName, actorLastName));
-                    } while (results.next());
-                } else {
-                    System.out.println("\nNo matches!");
+                    actors.add(new Actor(actorId, actorFirstName, actorLastName));
                 }
             }
         } catch (SQLException e) {
@@ -58,18 +54,14 @@ public class DataManager {
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, actorId);
             try (ResultSet results = preparedStatement.executeQuery()) {
-                if (results.next()) {
-                    do {
-                        int filmId = results.getInt(1);
-                        String title = results.getString(2);
-                        String description = results.getString(3);
-                        int releaseYear = results.getInt(4);
-                        int length = results.getInt(5);
+                while (results.next()) {
+                    int filmId = results.getInt(1);
+                    String title = results.getString(2);
+                    String description = results.getString(3);
+                    int releaseYear = results.getInt(4);
+                    int length = results.getInt(5);
 
-                        films.add(new Film(filmId, title, description, releaseYear, length));
-                    } while (results.next());
-                } else {
-                    System.out.println("\nNo matches!");
+                    films.add(new Film(filmId, title, description, releaseYear, length));
                 }
             }
         } catch (SQLException e) {
@@ -77,7 +69,4 @@ public class DataManager {
         }
         return films;
     }
-
-
-
 }
